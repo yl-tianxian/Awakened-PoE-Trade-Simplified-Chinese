@@ -4543,10 +4543,10 @@
 {"ref":"Monsters' Movement Speed cannot be modified to below Base Value","better":1,"fromAreaMods":"ubermap_exclusive","matchers":[{"string":"怪物的移动速度无法被减速至基础以下"}],"trade":{"ids":{"explicit":["explicit.stat_777421120"],"fractured":["fractured.stat_777421120"]}}}
 {"ref":"Monsters' Projectiles have #% chance to be able to Chain when colliding with Terrain","better":1,"fromAreaMods":"ubermap_exclusive","matchers":[{"string":"怪物的投射物击中地形时有 #% 的几率产生连锁"},{"string":"怪物的投射物击中地形时产生连锁","value":100}],"trade":{"ids":{"explicit":["explicit.stat_2753403220"],"fractured":["fractured.stat_2753403220"]}}}
 {"ref":"Monsters' skills Chain # additional times","better":1,"fromAreaMods":"yes","matchers":[{"string":"怪物的技能附加 # 次连锁弹射"}],"trade":{"ids":{"explicit":["explicit.stat_3183973644"],"fractured":["fractured.stat_3183973644"]}}}
-{"ref":"More Currency: #%","better":1,"matchers":[{"string":"More Currency: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_currency_drops"]}}}
-{"ref":"More Divination Cards: #%","better":1,"matchers":[{"string":"More Divination Cards: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_card_drops"]}}}
-{"ref":"More Maps: #%","better":1,"matchers":[{"string":"More Maps: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_map_drops"]}}}
-{"ref":"More Scarabs: #%","better":1,"matchers":[{"string":"More Scarabs: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_scarab_drops"]}}}
+{"ref":"More Currency: #%","better":1,"matchers":[{"string":"更多通货: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_currency_drops"]}}}
+{"ref":"More Divination Cards: #%","better":1,"matchers":[{"string":"更多命运卡: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_card_drops"]}}}
+{"ref":"More Maps: #%","better":1,"matchers":[{"string":"更多地图: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_map_drops"]}}}
+{"ref":"More Scarabs: #%","better":1,"matchers":[{"string":"更多圣甲虫: #% "}],"trade":{"ids":{"pseudo":["pseudo.pseudo_map_more_scarab_drops"]}}}
 {"ref":"Movement Speed cannot be modified to below Base Value","better":1,"matchers":[{"string":"你的移动速度加成不会让你减速至基础速度以下"}],"trade":{"ids":{"explicit":["explicit.stat_3875592188"],"fractured":["fractured.stat_3875592188"]}}}
 {"ref":"Moving while Bleeding doesn't cause you to take extra Damage","better":1,"matchers":[{"string":"流血状态下移动不再承受额外的伤害"}],"trade":{"ids":{"explicit":["explicit.stat_935326447"],"fractured":["fractured.stat_935326447"],"crafted":["crafted.stat_935326447"]}}}
 {"ref":"Nearby allies gain #% increased Damage","better":1,"matchers":[{"string":"周围友军的伤害提高 #%"}],"trade":{"ids":{"explicit":["explicit.stat_3175679225"]}}}

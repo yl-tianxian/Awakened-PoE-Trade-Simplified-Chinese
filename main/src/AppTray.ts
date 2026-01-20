@@ -57,38 +57,38 @@ export class AppTray {
           shell.openPath(path.join(app.getPath('userData'), 'apt-data'))
         }
       },
-      { type: 'separator' },
-      {
-        label: '支持原作者',
-        click: () => {
-          shell.openExternal('https://patreon.com/awakened_poe_trade')
-        }
-      },
-      {
-        label: '支持简中作者',
-        click: () => {
-          shell.openExternal('https://afdian.net/a/APTSimplifiedChinese/plan')
-        }
-      },
-      { type: 'separator' },
-      {
-        label: 'KOOK(原开黑啦)流放之路频道',
-        click: () => {
-          shell.openExternal('https://www.kookapp.cn/app/channels/2724791411633812')
-        }
-      },
-      {
-        label: 'QQ流放之路频道',
-        click: () => {
-          shell.openExternal('https://qun.qq.com/qqweb/qunpro/share?appChannel=share&inviteCode=1XW9B3zlwiq#/pc')
-        }
-      },
-      {
-        label: '简中查价器交流群(QQ群)',
-        click: () => {
-          shell.openExternal('https://jq.qq.com/?_wv=1027&k=Rxtjg63F')
-        }
-      },
+      // { type: 'separator' },
+      // {
+      //   label: '支持原作者',
+      //   click: () => {
+      //     shell.openExternal('https://patreon.com/awakened_poe_trade')
+      //   }
+      // },
+      // {
+      //   label: '支持简中作者',
+      //   click: () => {
+      //     shell.openExternal('https://afdian.net/a/APTSimplifiedChinese/plan')
+      //   }
+      // },
+      // { type: 'separator' },
+      // {
+      //   label: 'KOOK(原开黑啦)流放之路频道',
+      //   click: () => {
+      //     shell.openExternal('https://www.kookapp.cn/app/channels/2724791411633812')
+      //   }
+      // },
+      // {
+      //   label: 'QQ流放之路频道',
+      //   click: () => {
+      //     shell.openExternal('https://qun.qq.com/qqweb/qunpro/share?appChannel=share&inviteCode=1XW9B3zlwiq#/pc')
+      //   }
+      // },
+      // {
+      //   label: '简中查价器交流群(QQ群)',
+      //   click: () => {
+      //     shell.openExternal('https://jq.qq.com/?_wv=1027&k=Rxtjg63F')
+      //   }
+      // },
       { type: 'separator' },
       {
         label: 'Discord (需要翻墙)',

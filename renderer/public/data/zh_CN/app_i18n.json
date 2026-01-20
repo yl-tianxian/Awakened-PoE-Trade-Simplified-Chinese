@@ -86,6 +86,9 @@
     "elemental_dps": "元素DPS: {0}",
     "crit": "暴击率: {0}%",
     "aps": "每秒攻击次数: {0}",
+    "map_item_quantity": "物品数量: {0}%",
+    "map_item_rarity": "物品稀有度: {0}%",
+    "map_pack_size": "怪物群大小: {0}%",
     "has_empty_modifier": "1个空词缀或工艺词缀",
     "has_empty_affix": "空词缀",
     "has_empty_prefix": "空前缀",
@@ -307,7 +310,7 @@
     "stack": "堆叠"
   },
   "settings": {
-    "title": "设置 - Awakened PoE Trade Simplified Chinese By 红尘渡者 and DonkiChen",
+    "title": "设置 - Awakened PoE Trade Simplified Chinese",
     "language": "语言",
     "private_league": "或私人赛季",
     "account_name": "帐号(仅仅用来检测查价结果卖家是否为自己)",

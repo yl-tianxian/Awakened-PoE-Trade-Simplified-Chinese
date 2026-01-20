@@ -37,8 +37,8 @@
     <stack-value :filters="itemFilters" :item="item"/>
     <div v-if="true" class="mt-auto border border-dashed p-2">
       <div class="mb-1"><a href="https://patreon.com/awakened_poe_trade" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank">{{ t('Support development on') }} <img class="inline h-5" src="/images/Patreon.svg"></a></div>
-      <div class="mb-1"><a href="https://afdian.com/a/donkichen/plan" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank">{{ t('Support development CN on') }} <img class="inline h-5" src="/images/aifadain.png"></a></div>
-      <div class="mb-1"><a href="https://gitee.com/hhzxxx/exilence-next-tx-release" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank">推荐使用国服收益统计插件，点击此文本可跳转</a></div>
+      <!-- <div class="mb-1"><a href="https://afdian.com/a/donkichen/plan" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank">{{ t('Support development CN on') }} <img class="inline h-5" src="/images/aifadain.png"></a></div> -->
+      <!-- <div class="mb-1"><a href="https://gitee.com/hhzxxx/exilence-next-tx-release" class="inline-flex align-middle animate__animated animate__fadeInRight" target="_blank">推荐使用国服收益统计插件，点击此文本可跳转</a></div> -->
       <i18n-t keypath="app.thanks_3rd_party" tag="div">
         <a href="https://poeprices.info" target="_blank" class="bg-gray-900 px-1 rounded">poeprices.info</a>
         <a href="https://poe.ninja/support" target="_blank" class="bg-gray-900 px-1 rounded">poe.ninja</a>
@@ -117,7 +117,7 @@ export default defineComponent({
         searchStatRange: widget.value.searchStatRange,
         offline: widget.value.offline,
         useEn: AppConfig().useIntlSite,
-        currency: widget.value.rememberCurrency || (prevItem &&
+        currency: (prevItem &&
           item.info.namespace === prevItem.info.namespace &&
           item.info.refName === prevItem.info.refName
         ) ? prevCurrency : undefined

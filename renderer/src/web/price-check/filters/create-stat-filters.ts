@@ -7,6 +7,7 @@ import { applyRules as applyAtzoatlRules } from './pseudo/atzoatl-rules'
 import { applyRules as applyMirroredTabletRules } from './pseudo/reflection-rules'
 import { applyRules as applyT17MapRules } from './pseudo/t17-map-rules'
 import { filterItemProp, filterBasePercentile, filterMemoryStrands } from './pseudo/item-property'
+import { mapProps } from './pseudo/maps'
 import { decodeOils, applyAnointmentRules } from './pseudo/anointments'
 import { StatBetter, CLIENT_STRINGS, CLIENT_STRINGS_REF } from '@/assets/data'
 
@@ -55,7 +56,7 @@ export function createExactStatFilters (
     keepByType.push(ModifierType.Explicit)
   }
 
-  if (item.mapTier === 17) {
+  if (item.map?.tier === 17) {
     keepByType.push(ModifierType.Explicit)
   }
 
@@ -65,13 +66,16 @@ export function createExactStatFilters (
 
   const ctx: FiltersCreationContext = {
     item,
-    searchInRange: Math.min(2, opts.searchStatRange),
+    searchInRange: (item.category !== ItemCategory.Map)
+      ? Math.min(2, opts.searchStatRange)
+      : opts.searchStatRange,
     filters: [],
     statsByType: statsByType.filter(calc => keepByType.includes(calc.type))
   }
 
   filterBasePercentile(ctx)
   filterMemoryStrands(ctx)
+  mapProps(ctx)
 
   ctx.filters.push(
     ...ctx.statsByType.map(mod => calculatedStatToFilter(mod, ctx.searchInRange, item))
@@ -85,7 +89,15 @@ export function createExactStatFilters (
     applyMirroredTabletRules(ctx.filters)
     return ctx.filters
   }
-  if (item.mapTier === 17) {
+  if (item.category === ItemCategory.Map) {
+    for (const filter of ctx.filters) {
+      if (filter.tag !== FilterTag.Property && filter.tag !== FilterTag.Pseudo) {
+        filter.disabled = false
+      }
+    }
+    return ctx.filters
+  }
+  if (item.map?.tier === 17) {
     applyT17MapRules(ctx.filters)
     return ctx.filters
   }
