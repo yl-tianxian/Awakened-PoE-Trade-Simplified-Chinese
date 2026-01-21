@@ -15,14 +15,6 @@
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-"@electron-overlay-window@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/electron-overlay-window/-/electron-overlay-window-4.0.1.tgz"
-  integrity sha512-BUHntO0DzlSt+oFKvY0uylbX7UWtVxxeKS923yIc08YenI3gIsUW99h0tr13uow4llxP6GovoxpAwOz/67xMMg==
-  dependencies:
-    node-gyp-build "4.x.x"
-    throttle-debounce "5.x.x"
-
 "@electron/asar@3.2.18":
   version "3.2.18"
   resolved "https://registry.npmmirror.com/@electron/asar/-/asar-3.2.18.tgz#fa607f829209bab8b9e0ce6658d3fe81b2cba517"
@@ -1034,6 +1026,14 @@ electron-builder@26.0.12:
     simple-update-notifier "2.0.0"
     yargs "^17.6.2"
 
+electron-overlay-window@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/electron-overlay-window/-/electron-overlay-window-4.0.1.tgz#51d55e792656f66c72c646f0d9c4bab698ec0d7b"
+  integrity sha512-N+xihP19QaydNHPBz2T+Uv70sj8WUp1xdP/M+4mbjSkZyCsMrLG6r6gIJzS13Ic6eCdyaQE7MFL69z3JwtlF5g==
+  dependencies:
+    node-gyp-build "4.x.x"
+    throttle-debounce "5.x.x"
+
 electron-publish@26.0.11:
   version "26.0.11"
   resolved "https://registry.npmmirror.com/electron-publish/-/electron-publish-26.0.11.tgz#92c9329a101af2836d9d228c82966eca1eee9a7b"
@@ -1062,10 +1062,10 @@ electron-updater@^6.3.0:
     semver "~7.7.3"
     tiny-typed-emitter "^2.1.0"
 
-electron@39.0.0:
-  version "39.0.0"
-  resolved "https://registry.npmmirror.com/electron/-/electron-39.0.0.tgz#6906720c5bd3c40f98f6e01802fdc301654c4550"
-  integrity sha512-UejnuOK4jpRZUq7MkEAnR/szsRWLKBJAdvn6j3xdQLT57fVv13VSNdaUHHjSheaqGzNhCGIdkPsPJnGJVh5kiA==
+electron@39.2.4:
+  version "39.2.4"
+  resolved "https://registry.npmmirror.com/electron/-/electron-39.2.4.tgz#5ba17fd8fbfc5e6e50e6855f31b433a558030bea"
+  integrity sha512-KxPtwpFceQKSxRtUY39piHLYhJMMyHfOhc70e6zRnKGrbRdK6hzEqssth8IGjlKOdkeT4KCvIEngnNraYk39+g==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^22.7.7"
@@ -1903,9 +1903,9 @@ negotiator@^0.6.3:
   integrity sha512-myRT3DiWPHqho5PrJaIRyaMv2kgYf0mUVgBNOYMuCH5Ki1yEiQaf/ZJuQ62nvpc44wL5WDbTX7yGJi1Neevw8w==
 
 node-abi@^3.45.0:
-  version "3.86.0"
-  resolved "https://registry.npmmirror.com/node-abi/-/node-abi-3.86.0.tgz#10cb52a8e0f99514076b75ae80a256bdb1735e4c"
-  integrity sha512-sn9Et4N3ynsetj3spsZR729DVlGH6iBG4RiDMV7HEp3guyOW6W3S0unGpLDxT50mXortGUMax/ykUNQXdqc/Xg==
+  version "3.87.0"
+  resolved "https://registry.npmmirror.com/node-abi/-/node-abi-3.87.0.tgz#423e28fea5c2f195fddd98acded9938c001ae6dd"
+  integrity sha512-+CGM1L1CgmtheLcBuleyYOn7NWPVu0s0EJH2C4puxgEZb9h8QpR9G2dBfZJOAUhi7VQxuBPMd0hiISWcTyiYyQ==
   dependencies:
     semver "^7.3.5"
 
