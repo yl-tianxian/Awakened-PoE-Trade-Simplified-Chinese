@@ -1,6 +1,6 @@
 {
   "name": "Awakened-PoE-Trade-Simplified-Chinese",
-  "version": "3.27.102",
+  "version": "3.27.105",
   "private": true,
   "scripts": {
     "dev": "node build/script.mjs",
@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/yl-tianxian/Awakened-PoE-Trade-Simplified-Chinese.git"
   },
   "main": "dist/main.js",
   "dependencies": {
-    "@donkichen/electron-overlay-window": "1.0.0",
+    "electron-overlay-window": "4.0.1",
     "uiohook-napi": "1.5.x"
   },
   "devDependencies": {
@@ -25,7 +25,7 @@
     "@types/ws": "^8.5.3",
     "@wokwi/bmp-ts": "^3.0.0",
     "comlink": "^4.3.1",
-    "electron": "39.0.0",
+    "electron": "39.2.4",
     "electron-builder": "26.0.12",
     "electron-updater": "^6.3.0",
     "esbuild": "^0.25.0",

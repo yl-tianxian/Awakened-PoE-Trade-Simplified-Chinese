@@ -15,9 +15,9 @@
     ajv "^6.12.0"
     ajv-keywords "^3.4.1"
 
-"@donkichen/electron-overlay-window@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/@donkichen/electron-overlay-window/-/electron-overlay-window-1.0.0.tgz#4845b8f1c68e30a907b5bca5240cd939ccc3c311"
+"@electron-overlay-window@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/electron-overlay-window/-/electron-overlay-window-4.0.1.tgz"
   integrity sha512-BUHntO0DzlSt+oFKvY0uylbX7UWtVxxeKS923yIc08YenI3gIsUW99h0tr13uow4llxP6GovoxpAwOz/67xMMg==
   dependencies:
     node-gyp-build "4.x.x"
