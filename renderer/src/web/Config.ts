@@ -385,7 +385,7 @@ function upgradeConfig (_config: Config): Config {
 
   if (config.configVersion < 16) {
     config.widgets.find(w => w.wmType === 'price-check')!
-      .offline = false
+      .offline = true
 
     const delve = config.widgets.find(w => w.wmType === 'delve-grid') as widget.DelveGridWidget
     delve.toggleKey = (config as any).delveGridKey

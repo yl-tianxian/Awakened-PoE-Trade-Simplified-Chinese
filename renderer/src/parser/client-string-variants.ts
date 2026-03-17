@@ -40,10 +40,10 @@ const EXACT_VARIANTS: ClientStringVariantMap = {
 
 const MODIFIER_TYPE_VARIANTS: ClientStringVariantMap = {
   IMPLICIT_MODIFIER: ['基底词缀'],
-  FRACTURED_PREFIX: ['分裂 ▲ 前缀词缀'],
-  FRACTURED_SUFFIX: ['分裂 ▼ 后缀词缀'],
-  CRAFTED_PREFIX: ['大师工艺 ▲ 前缀词缀'],
-  CRAFTED_SUFFIX: ['大师工艺 ▼ 后缀词缀']
+  FRACTURED_PREFIX: ['破碎的 ▲ 前缀词缀'],
+  FRACTURED_SUFFIX: ['破碎的 ▽ 后缀词缀'],
+  CRAFTED_PREFIX: ['大师级 ▲ 前缀词缀'],
+  CRAFTED_SUFFIX: ['大师级 ▽ 后缀词缀']
 }
 
 const MODIFIER_GENERATION_VARIANTS: ClientStringVariantMap = {
