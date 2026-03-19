@@ -30,7 +30,7 @@ export default {
   MEMORY_STRANDS: '回忆束丝: ',
   PHYSICAL_DAMAGE: '物理伤害: ',
   ELEMENTAL_DAMAGE: '火焰，冰霜，闪电伤害: ',
-  CRIT_CHANCE: '攻击暴击率: ',
+  CRIT_CHANCE: '暴击几率: ',
   ATTACK_SPEED: '每秒攻击次数: ',
   ARMOUR: '护甲: ',
   EVASION: '闪避值: ',

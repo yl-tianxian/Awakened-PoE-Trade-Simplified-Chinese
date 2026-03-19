@@ -31,7 +31,7 @@ export default {
       return [{
         wmId: 0,
         wmType: 'stash-search',
-        wmTitle: 'Map rolling',
+        wmTitle: '地图过滤',
         wmWants: 'hide',
         wmZorder: null,
         wmFlags: ['invisible-on-blur'],
