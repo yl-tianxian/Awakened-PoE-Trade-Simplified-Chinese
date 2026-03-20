@@ -18,15 +18,7 @@ export type ClientStringVariantKey =
   | 'FOULBORN_MODIFIER'
   | 'SPLIT'
   | 'UNSCALABLE_VALUE'
-
-// The same key can have different compatibility variants depending on where
-// it is matched. For example, `CRAFTED_PREFIX` accepts one set of aliases when
-// determining modifier type, and a slightly different set for generation.
-export type ClientStringVariantGroup =
-  | 'exact'
-  | 'modifierType'
-  | 'modifierGeneration'
-  | 'trailing'
+  | 'CRIT_CHANCE'
 
 export type ClientStringRegexKey = {
   [K in keyof TranslationDict]: TranslationDict[K] extends RegExp ? K : never
@@ -34,54 +26,36 @@ export type ClientStringRegexKey = {
 
 type ClientStringVariantMap = Partial<Record<ClientStringVariantKey, readonly string[]>>
 
-const EXACT_VARIANTS: ClientStringVariantMap = {
-  SPLIT: ['分裂(Split)']
-}
-
-const MODIFIER_TYPE_VARIANTS: ClientStringVariantMap = {
-  IMPLICIT_MODIFIER: ['基底词缀'],
-  FRACTURED_PREFIX: ['分裂 ▲ 前缀词缀', '破碎的 ▲ 前缀词缀'],
-  FRACTURED_SUFFIX: ['分裂 ▽ 后缀词缀', '破碎的 ▽ 后缀词缀'],
-  CRAFTED_PREFIX: ['大师工艺 ▲ 前缀词缀', '大师级 ▲ 前缀词缀'],
-  CRAFTED_SUFFIX: ['大师工艺 ▽ 后缀词缀', '大师级 ▽ 后缀词缀']
-}
-
-const MODIFIER_GENERATION_VARIANTS: ClientStringVariantMap = {
+// Parser-only compatibility aliases supplement localized client strings.
+const CLIENT_STRING_VARIANTS: ClientStringVariantMap = {
+  SPLIT: ['分裂(Split)'],
   PREFIX_MODIFIER: ['▲ 前缀词缀'],
   SUFFIX_MODIFIER: ['▽ 后缀词缀'],
-  FRACTURED_PREFIX: MODIFIER_TYPE_VARIANTS.FRACTURED_PREFIX,
-  FRACTURED_SUFFIX: MODIFIER_TYPE_VARIANTS.FRACTURED_SUFFIX,
-  CRAFTED_PREFIX: MODIFIER_TYPE_VARIANTS.CRAFTED_PREFIX,
-  CRAFTED_SUFFIX: MODIFIER_TYPE_VARIANTS.CRAFTED_SUFFIX
-}
-
-const TRAILING_VARIANTS: ClientStringVariantMap = {
-  UNSCALABLE_VALUE: [' — 数值不可估量', ' — 数值不可调整']
-}
-
-const VARIANT_GROUPS: Record<ClientStringVariantGroup, ClientStringVariantMap> = {
-  exact: EXACT_VARIANTS,
-  modifierType: MODIFIER_TYPE_VARIANTS,
-  modifierGeneration: MODIFIER_GENERATION_VARIANTS,
-  trailing: TRAILING_VARIANTS
+  IMPLICIT_MODIFIER: ['基底词缀'],
+  FRACTURED_PREFIX: ['分裂 ▲ 前缀词缀', '破碎的 ▲ 前缀词缀', '分裂 前缀词缀'],
+  FRACTURED_SUFFIX: ['分裂 ▽ 后缀词缀', '破碎的 ▽ 后缀词缀', '分裂 后缀词缀'],
+  CRAFTED_PREFIX: ['大师工艺 ▲ 前缀词缀', '大师级 ▲ 前缀词缀', '大师 前缀词缀'],
+  CRAFTED_SUFFIX: ['大师工艺 ▽ 后缀词缀', '大师级 ▽ 后缀词缀', '大师 后缀词缀'],
+  CORRUPTED_IMPLICIT: ['腐化基底词缀'],
+  UNSCALABLE_VALUE: [' — 数值不可估量', ' — 数值不可调整'],
+  CRIT_CHANCE: ['暴击几率：','攻击暴击率: ']
 }
 
 /**
  * Returns the canonical translation value together with any parser-only
- * compatibility variants for the selected group.
+ * compatibility variants.
  *
  * Example:
  * `getClientStringVariants('SPLIT')`
  * -> `['Split', '分裂(Split)']`
  *
- * `getClientStringVariants('CRAFTED_PREFIX', 'modifierGeneration')`
+ * `getClientStringVariants('CRAFTED_PREFIX')`
  * -> `['Master Crafted Prefix Modifier', '▲ 工艺前缀', '大师工艺 ▲ 前缀词缀']`
  */
 export function getClientStringVariants (
-  key: ClientStringVariantKey,
-  group: ClientStringVariantGroup = 'exact'
+  key: ClientStringVariantKey
 ): readonly string[] {
-  return [_$[key], ...(VARIANT_GROUPS[group][key] ?? [])]
+  return [_$[key], ...(CLIENT_STRING_VARIANTS[key] ?? [])]
 }
 
 /**
@@ -92,16 +66,15 @@ export function getClientStringVariants (
  * `matchesClientString('SPLIT', 'Split')`
  * -> `true`
  *
- * `matchesClientString(['IMPLICIT_MODIFIER', 'CORRUPTED_IMPLICIT'], '基底词缀', 'modifierType')`
+ * `matchesClientString(['IMPLICIT_MODIFIER', 'CORRUPTED_IMPLICIT'], '基底词缀')`
  * -> `true`
  */
 export function matchesClientString (
   keyOrKeys: ClientStringVariantKey | readonly ClientStringVariantKey[],
-  value: string,
-  group: ClientStringVariantGroup = 'exact'
+  value: string
 ): boolean {
   const keys = Array.isArray(keyOrKeys) ? keyOrKeys : [keyOrKeys]
-  return keys.some(key => getClientStringVariants(key, group).includes(value))
+  return keys.some(key => getClientStringVariants(key).includes(value))
 }
 
 export function execClientStringRegex (
@@ -141,10 +114,9 @@ export function testClientStringRegex (
  */
 export function stripTrailingClientString (
   key: ClientStringVariantKey,
-  value: string,
-  group: ClientStringVariantGroup = 'trailing'
+  value: string
 ): { matched: boolean, value: string } {
-  const variants = [...getClientStringVariants(key, group)]
+  const variants = [...getClientStringVariants(key)]
     .sort((left, right) => right.length - left.length)
 
   for (const variant of variants) {

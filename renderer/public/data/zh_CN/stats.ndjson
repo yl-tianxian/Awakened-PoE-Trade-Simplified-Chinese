@@ -928,7 +928,7 @@
 {"ref":"#% increased Enfeeble Curse Effect","better":1,"matchers":[{"string":"衰弱的诅咒效果提高 #%"},{"string":"衰弱的诅咒效果降低 #%","negate":true}],"trade":{"ids":{"implicit":["implicit.stat_3293830776"],"enchant":["enchant.stat_3293830776"]}}}
 {"ref":"#% increased Engineering speed","better":1,"matchers":[{"string":"工程学速度加快 #%"},{"string":"工程学速度减慢 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_3211817426"],"implicit":["implicit.stat_3211817426"],"fractured":["fractured.stat_3211817426"]}}}
 {"ref":"#% increased Evasion and Energy Shield","better":1,"matchers":[{"string":"该装备的闪避与能量护盾提高 #%"},{"string":"该装备的闪避与能量护盾降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_1999113824"],"fractured":["fractured.stat_1999113824"],"crafted":["crafted.stat_1999113824"]}}}
-{"resolve":{"strat":"select","test":[null,"ARMOUR"]},"stats":[{"ref":"#% increased Evasion Rating","better":1,"matchers":[{"string":"该装备的闪避值提高 #%"},{"string":"该装备的闪避值降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_2106365538"],"implicit":["implicit.stat_2106365538"],"fractured":["fractured.stat_2106365538"],"crafted":["crafted.stat_2106365538"]}}},{"ref":"#% increased Evasion Rating","better":1,"matchers":[{"string":"该装备的闪避值提高 #%"},{"string":"该装备的闪避值降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_124859000"],"implicit":["implicit.stat_124859000"],"fractured":["fractured.stat_124859000"],"crafted":["crafted.stat_124859000"]}}}]}
+{"resolve":{"strat":"select","test":[null,"ARMOUR"]},"stats":[{"ref":"#% increased Evasion Rating","better":1,"matchers":[{"string":"该装备的闪避值提高 #%"},{"string":"闪避值提高 #%"},{"string":"该装备的闪避值降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_2106365538"],"implicit":["implicit.stat_2106365538"],"fractured":["fractured.stat_2106365538"],"crafted":["crafted.stat_2106365538"]}}},{"ref":"#% increased Evasion Rating","better":1,"matchers":[{"string":"该装备的闪避值提高 #%"},{"string":"闪避值提高 #%"},{"string":"该装备的闪避值降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_124859000"],"implicit":["implicit.stat_124859000"],"fractured":["fractured.stat_124859000"],"crafted":["crafted.stat_124859000"]}}}]}
 {"ref":"#% increased Evasion Rating and Armour","better":1,"matchers":[{"string":"闪避值与护甲提高 #%"},{"string":"闪避值与护甲降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_3366029652"]}}}
 {"ref":"#% increased Evasion Rating during Effect","better":1,"matchers":[{"string":"生效期间，闪避值提高 #%"}],"trade":{"ids":{"explicit":["explicit.stat_299054775"],"fractured":["fractured.stat_299054775"]}}}
 {"ref":"#% increased Evasion Rating during Onslaught","better":1,"matchers":[{"string":"在猛攻状态期间闪避值提高 #%"},{"string":"在猛攻状态期间闪避值降低 #%","negate":true}],"trade":{"ids":{"explicit":["explicit.stat_156734303"]}}}
@@ -2093,8 +2093,8 @@
 {"ref":"+# total maximum Life","better":1,"matchers":[{"string":"+# 最大生命值"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_life"]}}}
 {"ref":"+# total maximum Mana","better":1,"matchers":[{"string":"+# 最大魔力值"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_mana"]}}}
 {"ref":"+# total to all Attributes","better":1,"matchers":[{"string":"+# 全属性"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_all_attributes"]}}}
-{"ref":"+# total to Dexterity","better":1,"matchers":[{"string":"+#% 敏捷"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_dexterity"]}}}
-{"ref":"+# total to Intelligence","better":1,"matchers":[{"string":"+#% 智慧"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_intelligence"]}}}
+{"ref":"+# total to Dexterity","better":1,"matchers":[{"string":"+# 敏捷"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_dexterity"]}}}
+{"ref":"+# total to Intelligence","better":1,"matchers":[{"string":"+# 智慧"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_intelligence"]}}}
 {"ref":"+# total to Level of Socketed Aura Gems","better":1,"matchers":[{"string":"+#光环技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_aura_gem_levels"]}}}
 {"ref":"+# total to Level of Socketed Bow Gems","better":1,"matchers":[{"string":"+#弓技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_bow_gem_levels"]}}}
 {"ref":"+# total to Level of Socketed Chaos Gems","better":1,"matchers":[{"string":"+#混沌技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_chaos_gem_levels"]}}}
@@ -2117,7 +2117,7 @@
 {"ref":"+# total to Level of Socketed Support Gems","better":1,"matchers":[{"string":"+#辅助技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_support_gem_levels"]}}}
 {"ref":"+# total to Level of Socketed Vaal Gems","better":1,"matchers":[{"string":"+#瓦尔技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_vaal_gem_levels"]}}}
 {"ref":"+# total to Level of Socketed Warcry Gems","better":1,"matchers":[{"string":"+#战吼技能宝石等级"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_additional_warcry_gem_levels"]}}}
-{"ref":"+# total to Strength","better":1,"matchers":[{"string":"+#% 力量"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_strength"]}}}
+{"ref":"+# total to Strength","better":1,"matchers":[{"string":"+# 力量"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_total_strength"]}}}
 {"ref":"+#% chance for a Synthesis Map to drop from Final Map Boss in each Map (Tier 14+)","dp":true,"better":1,"matchers":[{"string":"每张地图（14 阶以上）的地图最终首领掉落虚空忆境地图的几率 #%"}],"trade":{"ids":{"explicit":["explicit.stat_4098976931"]}}}
 {"ref":"+#% chance to Avoid Elemental Damage from Hits while Phasing","better":1,"matchers":[{"string":"迷踪状态下，被击中时 #% 避免元素伤害几率"}],"trade":{"ids":{"explicit":["explicit.stat_143510471"]}}}
 {"ref":"+#% chance to Avoid Physical Damage from Hits while Phasing","better":1,"matchers":[{"string":"迷踪状态下，被击中时避免物理伤害的几率 #%"}],"trade":{"ids":{"explicit":["explicit.stat_2490633856"]}}}
@@ -3983,7 +3983,7 @@
 {"ref":"Has Room: Jeweller's Workshop (Tier 1)","better":0,"matchers":[{"string":"内有房间：珠宝匠的工坊（1 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_trinket_room_1"]},"option":true}}
 {"ref":"Has Room: Jewellery Forge (Tier 2)","better":0,"matchers":[{"string":"内有房间：珠宝熔炉（2 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_trinket_room_2"]},"option":true}}
 {"ref":"Has Room: Lightning Workshop (Tier 1)","better":0,"matchers":[{"string":"内有房间：闪电工坊（1 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_boss_lightning_1"]},"option":true}}
-{"ref":"Has Room: Locus of Corruption (Tier 3)","better":0,"matchers":[{"string":"内有房间：腐化蝗群（3 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_corruption_room_3"]},"option":true}}
+{"ref":"Has Room: Locus of Corruption (Tier 3)","better":0,"matchers":[{"string":"内有房间：腐化蝗群（3 阶）"},{"string":"腐化蝗群[腐化室Ⅲ-双瓦] (等阶:3)"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_corruption_room_3"]},"option":true}}
 {"ref":"Has Room: Museum of Artefacts (Tier 3)","better":0,"matchers":[{"string":"内有房间：神器博物馆（3 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_chests_3"]},"option":true}}
 {"ref":"Has Room: Office of Cartography (Tier 2)","better":0,"matchers":[{"string":"内有房间：绘图室（2 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_cartography_room_2"]},"option":true}}
 {"ref":"Has Room: Omnitect Forge (Tier 2)","better":0,"matchers":[{"string":"内有房间：妖塔熔炉（2 阶）"}],"trade":{"ids":{"pseudo":["pseudo.pseudo_temple_boss_fire_2"]},"option":true}}

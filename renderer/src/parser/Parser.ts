@@ -14,7 +14,7 @@ import { IncursionRoom, ParsedItem, ItemInfluence, ItemRarity } from './ParsedIt
 import { magicBasetype } from './magic-name'
 import { isModInfoLine, groupLinesByMod, parseModInfoLine, parseModType, ModifierInfo, ParsedModifier, ENCHANT_LINE, SCOURGE_LINE, IMPLICIT_LINE } from './advanced-mod-desc'
 import { calcPropPercentile, QUALITY_STATS } from './calc-q20'
-import { execClientStringRegex, matchesClientString } from './client-string-variants'
+import { execClientStringRegex, matchesClientString, getClientStringVariants } from './client-string-variants'
 
 type SectionParseResult =
   | 'SECTION_PARSED'
@@ -635,6 +635,15 @@ function parseWeapon (section: string[], item: ParsedItem) {
   let isParsed: SectionParseResult = 'SECTION_SKIPPED'
 
   for (const line of section) {
+    //解决暴击率的问题
+    const critVariants = getClientStringVariants('CRIT_CHANCE')
+    const matchedVariant = critVariants.find(v => line.startsWith(v))
+    
+    if (matchedVariant) {
+      item.weaponCRIT = parseFloat(line.slice(matchedVariant.length))
+      isParsed = 'SECTION_PARSED'; continue
+    }
+    //解决暴击率的问题
     if (line.startsWith(_$.CRIT_CHANCE)) {
       item.weaponCRIT = parseFloat(line.slice(_$.CRIT_CHANCE.length))
       isParsed = 'SECTION_PARSED'; continue
