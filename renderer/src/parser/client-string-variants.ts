@@ -38,7 +38,7 @@ const CLIENT_STRING_VARIANTS: ClientStringVariantMap = {
   CRAFTED_SUFFIX: ['大师工艺 ▽ 后缀词缀', '大师级 ▽ 后缀词缀', '大师 后缀词缀'],
   CORRUPTED_IMPLICIT: ['腐化基底词缀'],
   UNSCALABLE_VALUE: [' — 数值不可估量', ' — 数值不可调整'],
-  CRIT_CHANCE: ['暴击几率：','攻击暴击率: ']
+  CRIT_CHANCE: ['暴击几率：', '攻击暴击率: ']
 }
 
 /**

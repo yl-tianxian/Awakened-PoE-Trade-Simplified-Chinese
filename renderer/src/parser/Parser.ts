@@ -635,15 +635,15 @@ function parseWeapon (section: string[], item: ParsedItem) {
   let isParsed: SectionParseResult = 'SECTION_SKIPPED'
 
   for (const line of section) {
-    //解决暴击率的问题
+    // 解决暴击率的问题
     const critVariants = getClientStringVariants('CRIT_CHANCE')
     const matchedVariant = critVariants.find(v => line.startsWith(v))
-    
+
     if (matchedVariant) {
       item.weaponCRIT = parseFloat(line.slice(matchedVariant.length))
       isParsed = 'SECTION_PARSED'; continue
     }
-    //解决暴击率的问题
+    // 解决暴击率的问题
     if (line.startsWith(_$.CRIT_CHANCE)) {
       item.weaponCRIT = parseFloat(line.slice(_$.CRIT_CHANCE.length))
       isParsed = 'SECTION_PARSED'; continue

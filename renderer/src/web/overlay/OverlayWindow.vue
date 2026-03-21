@@ -3,22 +3,15 @@
     :style="{ '--game-panel': poePanelWidth.toFixed(4) + 'px' }">
     <!-- <div style="border: 4px solid red; top: 0; left: 0; height: 100%; width: 100%; position: absolute;"></div> -->
     <div style="top: 0; left: 0; height: 100%; width: 100%; position: absolute;"
-      :style="{ background: overlayBackground }"
-      @click="handleBackgroundClick"></div>
+      :style="{ background: overlayBackground }" @click="handleBackgroundClick"></div>
     <template v-for="widget of widgets" :key="widget.wmId">
-      <component
-        v-show="isVisible(widget.wmId)"
-        :config="widget"
-        :id="`widget-${widget.wmId}`"
+      <component v-show="isVisible(widget.wmId)" :config="widget" :id="`widget-${widget.wmId}`"
         :is="registry.getWidgetComponent(widget.wmType)" />
     </template>
-    <pre v-if="showLogs"
-      class="widget-default-style p-4 mx-auto mt-6 overflow-hidden"
-      style="max-width: 38rem; z-index: 999; position: absolute; left: 0; right: 0;"
-    >{{ logs }}</pre>
+    <pre v-if="showLogs" class="widget-default-style p-4 mx-auto mt-6 overflow-hidden"
+      style="max-width: 38rem; z-index: 999; position: absolute; left: 0; right: 0;">{{ logs }}</pre>
     <loading-animation />
-    <div v-if="showEditingNotification"
-      class="widget-default-style p-6 bg-blue-600 mx-auto text-center text-base mt-6"
+    <div v-if="showEditingNotification" class="widget-default-style p-6 bg-blue-600 mx-auto text-center text-base mt-6"
       style="min-width: 30rem; z-index: 998; width: fit-content; position: absolute; left: 0; right: 0;">
       <i18n-t keypath="reopen_settings">
         <span class="bg-blue-800 rounded px-1">{{ overlayKey }}</span>
@@ -34,7 +27,7 @@
 import { defineComponent, provide, shallowRef, watch, readonly, computed, onMounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Host } from '@/web/background/IPC'
-import { ImageStripWidget, Widget, WidgetManager } from './interfaces'
+import { Widget, WidgetManager } from './interfaces'
 import { registry } from './widget-registry.js'
 import { AppConfig, saveConfig, pushHostConfig } from '@/web/Config'
 import LoadingAnimation from './LoadingAnimation.vue'
@@ -43,7 +36,7 @@ import { usePoeninja } from '@/web/background/Prices'
 import { useLeagues } from '@/web/background/Leagues'
 import { handleLine } from '@/web/client-log/client-log'
 
-import { imgArray, updateImage } from '@/web/background/Labyrinrh'
+import { updateImage } from '@/web/background/Labyrinrh'
 type WMID = Widget['wmId']
 
 export default defineComponent({
@@ -101,14 +94,13 @@ export default defineComponent({
             hide(w.wmId)
           }
         }
-        try { updateImage() } catch (e) {}
+        try { updateImage() } catch (e) { }
       } else {
         for (const w of widgets.value) {
           if (w.wmFlags.includes('hide-on-focus')) {
             hide(w.wmId)
           }
         }
-        
       }
     })
     Host.onEvent('MAIN->OVERLAY::visibility', (e) => {
