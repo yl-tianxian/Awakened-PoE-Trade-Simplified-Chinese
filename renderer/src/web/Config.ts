@@ -173,7 +173,7 @@ export const defaultConfig = (): Config => ({
   language: 'zh_CN',
   cookies: '',
   realm: 'pc-ggg',
-  useIntlSite: false,
+  useIntlSite: true,
   fontSize: 16,
   widgets: widgetRegistry.widgets.reduce<widget.Widget[]>((widgets, { widget }) => {
     const res: widget.Widget[] = []

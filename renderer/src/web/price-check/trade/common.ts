@@ -59,7 +59,9 @@ export function adjustRateLimits (clientLimits: Set<RateLimiter>, headers: Heade
   )
 }
 
-function _adjustRateLimits (clientLimits: Set<RateLimiter>, limitStr: string, stateStr: string): void { /* eslint-disable no-console */
+function _adjustRateLimits (clientLimits: Set<RateLimiter>, limitStr: string, stateStr: string): void {
+  /* eslint-disable no-console, @typescript-eslint/no-unused-expressions */
+
   const DEBUG = false
   const DESYNC_FIX = AppConfig<PriceCheckWidget>('price-check')!.apiLatencySeconds
 
