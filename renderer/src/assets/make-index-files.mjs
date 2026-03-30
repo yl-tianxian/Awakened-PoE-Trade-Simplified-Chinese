@@ -64,7 +64,7 @@ for (const lang of LANGUAGES) {
 
 for (const lang of LANGUAGES) {
   /** @type{Array<{ hashName: number, hashRefName: number, start: number }>} */
-  let lineStarts,lineStarts2
+  let lineStarts, lineStarts2
   {
     const ndjson = fs.readFileSync(`./public/data/${lang}/items.ndjson`, { encoding: 'utf-8' })
     let start = 0

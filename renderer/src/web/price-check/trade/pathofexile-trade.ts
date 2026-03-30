@@ -744,13 +744,22 @@ function tradeIdToQuery (id: string, stat: Pick<StatFilter, 'roll' | 'option' | 
   }
 }
 
+// 新增辅助函数修复朴实项链后面的[※※]问题
+function cleanItemName (name: string): string {
+  if (!name) return name
+  // 移除方括号及其内容，如 [※※]、[+1]、[腐化] 等
+  return name.replace(/\s*\[.*?\]\s*/g, '').trim()
+}
+
 function nameToQuery (name: string, filters: ItemFilters) {
+  const cleanName = cleanItemName(name)  // 新增辅助函数修复朴实项链后面的[※※]问题
+  
   if (!filters.discriminator) {
-    return name
+    return cleanName  // 如果没有discriminator，则返回干净的name
   } else {
     return {
       discriminator: filters.discriminator.trade,
-      option: name
+      option: cleanName  // 如果有discriminator，则返回干净的name和discriminator
     }
   }
 }

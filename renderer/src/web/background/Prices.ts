@@ -83,7 +83,7 @@ export const usePoeninja = createGlobalState(() => {
           response = await Host.proxy(jsonurl, {
             signal: downloadController.signal
           })
-        } catch (e) {
+        } catch {
           response = await Host.proxy(jsonurl.replace('pub-feb51ef2e03741399e6a3d2d09a07601.r2.dev', 'gitee.com/hhzxxx/exilence-next-tx-release/raw/master'), {
             signal: downloadController.signal
           })
