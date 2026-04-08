@@ -172,8 +172,8 @@ export const defaultConfig = (): Config => ({
   stashScroll: true,
   language: 'zh_CN',
   cookies: '',
-  realm: 'pc-ggg',
-  useIntlSite: true,
+  realm: 'pc-tencent',
+  useIntlSite: false,
   fontSize: 16,
   widgets: widgetRegistry.widgets.reduce<widget.Widget[]>((widgets, { widget }) => {
     const res: widget.Widget[] = []
