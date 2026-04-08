@@ -385,7 +385,7 @@ function upgradeConfig (_config: Config): Config {
 
   if (config.configVersion < 16) {
     config.widgets.find(w => w.wmType === 'price-check')!
-      .offline = true
+      .offline = false
 
     const delve = config.widgets.find(w => w.wmType === 'delve-grid') as widget.DelveGridWidget
     delve.toggleKey = (config as any).delveGridKey
@@ -449,10 +449,8 @@ function upgradeConfig (_config: Config): Config {
     config.configVersion = 18
   }
 
-  if (config.configVersion < 19) {
-    config.useIntlSite = ((config.language === 'cmn-Hant' || config.language === 'zh_CN') && config.realm === 'pc-ggg')
-
-    config.configVersion = 19
+  if ((config.language === 'cmn-Hant' || config.language === 'zh_CN') && config.realm === 'pc-ggg') {
+    config.useIntlSite = true
   }
 
   if (config.configVersion < 20) {

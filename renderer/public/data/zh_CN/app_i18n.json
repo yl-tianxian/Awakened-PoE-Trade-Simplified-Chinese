@@ -159,7 +159,7 @@
   "filters": {
     "selected_some": "词缀: {0}/{1}",
     "selected_none": "忽略词缀",
-    "hidden_toggle": "已隐藏",
+    "hidden_toggle": "锁词被隐藏点这里",
     "collapse": "折叠",
     "mods_toggle": "Mods",
     "empty": "找不到词缀",
