@@ -1093,6 +1093,14 @@ function markupConditionParser (text: string) {
       ? body
       : ''
   })
+  // 新增：过滤掉宝石名称中的 [等级/占用] 等附加信息
+  // 例如：启蒙(辅)[2/3/4级 -占魔 96%/92%/88%] → 启蒙(辅)
+  text = text.replace(/\[.+?\]/g, '')
+
+  const mapNameMatch = text.match(/^地图:(\S+)/) // 国服传奇地图名称提取
+  if (mapNameMatch) {
+    text = mapNameMatch[1]
+  }
 
   return text
 }

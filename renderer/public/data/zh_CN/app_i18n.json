@@ -296,7 +296,7 @@
     "getting_price_from": "从poe.ninja …",
     "you_have": "你拥有",
     "stack": "堆叠",
-    "legacy_bulk_xchg_msg": "This item is available on the Currency Exchange Market.",
+    "legacy_bulk_xchg_msg": "此物品只能在浮士德处交易查询兑换比例",
     "market_ratio": "Market Ratio"
   },
   "settings": {

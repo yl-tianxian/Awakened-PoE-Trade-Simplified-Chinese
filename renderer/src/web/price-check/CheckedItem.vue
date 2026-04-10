@@ -6,7 +6,7 @@
     <!-- Disenchant Value -->
     <div v-if="itemDisenchantValue" class="mb-2 px-2 py-1 bg-gray-900 rounded text-sm flex justify-between items-center">
       <span class="text-gray-400">💎{{ t('disenchant_value') }}</span>
-      <span class="text-yellow-400 font-semibold">{{ itemDisenchantValue }} c</span>
+      <span class="text-yellow-400 font-semibold">{{ itemDisenchantValue }} 粉尘</span>
     </div>
     <price-prediction v-if="showPredictedPrice" class="mb-4"
       :item="item" />
@@ -206,7 +206,17 @@ export default defineComponent({
         props.item.info.unique == null)
     })
 
-    const itemDisenchantValue = computed<number | undefined>(() => {
+    const itemDisenchantValue = computed<number | undefined>(() => {   //新增物品分解粉尘计算
+      // 珠宝、药剂、地图类传奇物品当前赛季不可分解
+    if (
+      props.item.category === ItemCategory.Jewel ||
+      props.item.category === ItemCategory.Flask ||
+      props.item.category === ItemCategory.Map ||
+      props.item.category === ItemCategory.ClusterJewel
+    ) {
+      return undefined
+    }
+
       const baseValue = props.item.info.unique?.disenchantValue
       if (!baseValue) return undefined
 
@@ -230,7 +240,7 @@ export default defineComponent({
 
       const qualityMultiplier = 1 + quality / 100
 
-      return Math.round(baseValue * 100 * levelMultiplier * qualityMultiplier)
+      return Math.round(baseValue * 100 * levelMultiplier * qualityMultiplier * 1.25)
     })
 
     function handleSearchMouseenter (e: MouseEvent) {
