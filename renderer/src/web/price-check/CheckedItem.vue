@@ -3,6 +3,11 @@
     <filter-name
       :filters="itemFilters"
       :item="item" />
+    <!-- Disenchant Value -->
+    <div v-if="itemDisenchantValue" class="mb-2 px-2 py-1 bg-gray-900 rounded text-sm flex justify-between items-center">
+      <span class="text-gray-400">💎{{ t('disenchant_value') }}</span>
+      <span class="text-yellow-400 font-semibold">{{ itemDisenchantValue }} c</span>
+    </div>
     <price-prediction v-if="showPredictedPrice" class="mb-4"
       :item="item" />
     <price-trend v-else
@@ -201,6 +206,33 @@ export default defineComponent({
         props.item.info.unique == null)
     })
 
+    const itemDisenchantValue = computed<number | undefined>(() => {
+      const baseValue = props.item.info.unique?.disenchantValue
+      if (!baseValue) return undefined
+
+      const ilvl = props.item.itemLevel ?? 84
+      const clampedIlvl = Math.min(Math.max(ilvl, 65), 84)
+      const levelMultiplier = 20 - (84 - clampedIlvl)
+
+      const quality = props.item.quality ?? 0
+      // 调试日志 - 在浏览器 DevTools Console 中查看
+      // console.log('[DisenchantDebug]', {
+      //   name: props.item.info.refName,
+      //   rawQuality: props.item.quality,
+      //   qualityUsed: quality,
+      //   ilvl,
+      //   clampedIlvl,
+      //   levelMultiplier,
+      //   baseValue,
+      //   result: baseValue * 100 * levelMultiplier * (1 + quality / 100)
+      // })
+      // 调试日志 - 在浏览器 DevTools Console 中查看
+
+      const qualityMultiplier = 1 + quality / 100
+
+      return Math.round(baseValue * 100 * levelMultiplier * qualityMultiplier)
+    })
+
     function handleSearchMouseenter (e: MouseEvent) {
       if ((filtersComponent.value.$el as HTMLElement).contains(e.relatedTarget as HTMLElement)) {
         doSearch.value = true
@@ -236,6 +268,7 @@ export default defineComponent({
       filtersComponent,
       showPredictedPrice,
       show,
+      itemDisenchantValue,
       handleSearchMouseenter,
       showSupportLinks,
       presets: computed(() => presets.value.presets.map(preset =>

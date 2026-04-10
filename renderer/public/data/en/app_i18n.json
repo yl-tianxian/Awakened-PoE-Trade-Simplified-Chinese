@@ -347,5 +347,7 @@
     "select_stock": "Always select \"Stock\" filter",
     "show_prediction": "Show price prediction",
     "remember_currency": "Remember the Buyout Currency filter"
-  }
+  },
+
+  "disenchant_value": "Disenchant Value"
 }

@@ -573,9 +573,11 @@ function parseSockets (section: string[], item: ParsedItem) {
 
 function parseQualityNested (section: string[], item: ParsedItem): boolean {
   for (const line of section) {
-    if (line.startsWith(_$.QUALITY)) {
-      // "Quality: +20% (augmented)"
-      item.quality = parseInt(line.slice(_$.QUALITY.length), 10)
+    const match = line.match(_$.QUALITY)
+    if (match) {
+      // 这个函数重新定义了一下以解析首饰的品质"Quality: +20% (augmented)" or "Quality (Attribute): +20%"
+      const valueStr = line.slice(match[0].length)
+      item.quality = parseInt(valueStr, 10)
       return true
     }
   }
@@ -677,6 +679,10 @@ function parseAccessory (section: string[], item: ParsedItem) {
   if (!item.category || !ACCESSORY.has(item.category)) return 'PARSER_SKIPPED'
 
   if (parseMemoryStrandsNested(section, item)) {
+    return 'SECTION_PARSED'
+  }
+
+  if (parseQualityNested(section, item)) {
     return 'SECTION_PARSED'
   }
 

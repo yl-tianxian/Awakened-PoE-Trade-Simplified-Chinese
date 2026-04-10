@@ -26,7 +26,7 @@ export default {
   GEM_LEVEL: '等级: ',
   STACK_SIZE: '堆叠数量: ',
   SOCKETS: '插槽: ',
-  QUALITY: '品质: ',
+  QUALITY: /^品质（.+?）: |^品质: /,
   MEMORY_STRANDS: '回忆束丝: ',
   STORED_EXPERIENCE: '储存的精华：',
   PHYSICAL_DAMAGE: '物理伤害: ',
